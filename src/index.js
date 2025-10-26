@@ -12,8 +12,21 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 db.sequelize.authenticate()
-  .then(() => console.log('✓ Database connected successfully'))
-  .catch(err => console.error('✗ Database connection failed:', err.message));
+  .then(() => {
+    console.log('✓ Database connected successfully');
+    console.log(`  Host: ${process.env.DB_HOST}`);
+    console.log(`  Database: ${process.env.DB_NAME}`);
+    console.log(`  Port: ${process.env.DB_PORT}`);
+  })
+  .catch(err => {
+    console.error('✗ Database connection failed:', err.message);
+    console.error('  Full error:', err);
+    console.error('  Connection details:');
+    console.error(`    Host: ${process.env.DB_HOST}`);
+    console.error(`    User: ${process.env.DB_USER}`);
+    console.error(`    Database: ${process.env.DB_NAME}`);
+    console.error(`    Port: ${process.env.DB_PORT}`);
+  });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
