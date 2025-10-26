@@ -1,0 +1,31 @@
+{
+  "name": "country-currency-exchange-api",
+  "version": "1.0.0",
+  "description": "RESTful API for country data, currencies and exchange rates",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "setup-db": "node src/database/setup.js"
+  },
+  "keywords": [
+    "api",
+    "countries",
+    "exchange-rates",
+    "currency"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.35.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "jimp": "^0.22.10",
+    "swagger-ui-express": "^5.0.0",
+    "swagger-jsdoc": "^6.2.8"
+  }
+}
